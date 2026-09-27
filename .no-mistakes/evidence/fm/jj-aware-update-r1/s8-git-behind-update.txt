@@ -1,0 +1,5 @@
+firstmate: updated 30ef650..84e0c00 (instructions changed: bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none

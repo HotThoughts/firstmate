@@ -1,0 +1,3 @@
+bookmark still on local commit: yes
+local commit preserved: local-work
+fork content preserved: 1

@@ -1,0 +1,3 @@
+main == main@origin: yes
+working copy empty: true
+target-only file present: yes

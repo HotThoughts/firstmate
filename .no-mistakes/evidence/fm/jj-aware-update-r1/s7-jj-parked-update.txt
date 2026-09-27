@@ -1,0 +1,4 @@
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none

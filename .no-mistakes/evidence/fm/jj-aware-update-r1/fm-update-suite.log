@@ -1,0 +1,28 @@
+ok - JJ1 clean jj home behind remote advances and reports updated
+ok - JJ2 dirty jj home skipped, work preserved
+ok - JJ3 diverged jj home skipped, local commit preserved
+ok - JJ4 already-current jj home reports already current
+ok - JJ5 described working-copy commit is skipped and preserved
+ok - JJ6 working copy parked outside the target is skipped, commit preserved
+ok - JJ7 a stale working copy under a current bookmark advances and rereads
+ok - JJ8 a side-commit working copy under a current bookmark is skipped
+ok - JJ9 the reread verdict baselines on the working copy for a behind bookmark
+ok - JJ10 a described non-empty working copy reports the description reason
+ok - JJ11 a plain jj new above the base advances instead of wedging
+ok - T1 main + secondmate fast-forward (single-parent), reread + restart signalled
+ok - T3 a non-instruction advance still restarts the live secondmate
+ok - T3b a bin/-only advance restarts the secondmate
+ok - T3c an unverifiable secondmate receives the fallback nudge
+ok - T3d an already-stopped secondmate is left to startup recovery
+ok - T3e a legacy remote advance still restarts the live remote mate
+ok - T4 dirty secondmate skipped, local edit preserved
+ok - T5 diverged secondmate is preserved and durably actionable
+ok - T5b squash-merged divergence heals and rejoins live convergence
+ok - T6 an already-current live secondmate is still restarted
+ok - T6b an already-current mate with an unprovable runtime is steered, not claimed as reloaded
+ok - T7 registry backstop resolves, dedups meta+registry, excludes the firstmate repo
+ok - T9 firstmate off its default branch is skipped, not forced
+ok - T10 firstmate detached HEAD is skipped
+ok - T11 unsafe secondmate home is not fast-forwarded
+ok - T12 a self-update rebinds a locally armed watch on the primary
+# all fm-update tests passed

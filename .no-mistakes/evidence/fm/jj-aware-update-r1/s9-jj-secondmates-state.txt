@@ -1,0 +1,6 @@
+sm1 bookmark at target: yes
+sm1 target-only file present: yes
+sm2 local commit preserved: local-work
+sm2 fork content preserved: 1
+no durable reconcile record for jj divergence: none
+(no reconcile dir)

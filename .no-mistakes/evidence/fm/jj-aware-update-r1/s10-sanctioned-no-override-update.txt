@@ -1,0 +1,4 @@
+firstmate: skipped: cannot determine default branch
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none

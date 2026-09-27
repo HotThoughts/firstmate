@@ -1,0 +1,7 @@
+--- jj home state after update ---
+84e0c0051a0a5aae4460e8319a584b7a49b293dc no-mistakes(document): scope jj divergence carve-out across update docs
+main == main@origin: yes
+working copy empty: true
+working copy parent == main tip: yes
+target-only file present: yes
+skill doc at target content: 1

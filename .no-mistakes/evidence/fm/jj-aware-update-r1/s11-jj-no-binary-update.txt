@@ -1,0 +1,4 @@
+firstmate: skipped: jj-managed home but jj is not on PATH
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none

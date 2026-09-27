@@ -1,0 +1,3 @@
+bookmark still at old base: yes
+unlanded line preserved: 1
+working copy still non-empty: false
