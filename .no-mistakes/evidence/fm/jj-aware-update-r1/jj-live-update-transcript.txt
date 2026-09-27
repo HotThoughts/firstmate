@@ -1,0 +1,185 @@
+
+===== S0 - git-home report form (comparison baseline for "same form") =====
+warning: You appear to have cloned an empty repository.
+firstmate: updated 3cd494e..dbd1777 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+
+===== S1 - clean jj colocated home behind origin advances (required outcome) =====
+warning: You appear to have cloned an empty repository.
+-- before the update (home at c1, origin will move to c2):
+-- jj log (all visible commits):
+@  wlwrvsor 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:00 60b64f9e
+│  (empty) (no description set)
+◆  xzrrmppu live-test@example.com 2026-09-27 08:06:00 main main@origin 5b0128a7
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = 5b0128a
+-- @          = 60b64f9
+-- main@origin= 5b0128a
+-- @ empty    = true
+-- AGENTS.md  = v1
+-- running bin/fm-update.sh on the jj colocated home:
+firstmate: updated 60b64f9..f5ed242 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+-- after the update:
+-- jj log (all visible commits):
+@  kuwvwrxq 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:01 f3924590
+│  (empty) (no description set)
+◆  pkumtqvp live-test@example.com 2026-09-27 08:06:01 main main@origin f5ed242c
+│  bump-instr
+◆  xzrrmppu live-test@example.com 2026-09-27 08:06:00 5b0128a7
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = f5ed242
+-- @          = f392459
+-- main@origin= f5ed242
+-- @ empty    = true
+-- AGENTS.md  = v2
+
+===== S4 - second run with no new upstream work reports already current =====
+firstmate: already current
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+
+===== S1b - a later upstream bump advances again (the path is no longer permanently skipped) =====
+firstmate: updated f392459..426d13d
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- jj log (all visible commits):
+@  zosunool 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:02 ba235238
+│  (empty) (no description set)
+◆  mprzotvl live-test@example.com 2026-09-27 08:06:02 main main@origin 426d13d9
+│  bump-instr
+◆  pkumtqvp live-test@example.com 2026-09-27 08:06:01 f5ed242c
+│  bump-instr
+◆  xzrrmppu live-test@example.com 2026-09-27 08:06:00 5b0128a7
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = 426d13d
+-- @          = ba23523
+-- main@origin= 426d13d
+-- @ empty    = true
+-- AGENTS.md  = v2
+
+===== S2 - dirty jj home is skipped, unlanded work preserved =====
+warning: You appear to have cloned an empty repository.
+firstmate: skipped: dirty working tree
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- main unchanged: yes
+-- local edit lines intact: 1
+
+===== S3 - diverged jj home is skipped, local commit preserved, never forced =====
+warning: You appear to have cloned an empty repository.
+firstmate: skipped: diverged from main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- main unchanged: yes
+-- fork work lines intact: 1
+
+===== S6 - reread verdict baselines on the working copy for a behind bookmark =====
+warning: You appear to have cloned an empty repository.
+-- parked state (files serve v1, bookmark at v2):
+-- jj log (all visible commits):
+@  wlykvswk 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:07 3d69c23d
+│  (empty) (no description set)
+│ ◆  ltlqppqz live-test@example.com 2026-09-27 08:06:06 main main@origin 08898933
+├─╯  bump-instr
+◆  uwrmqytn live-test@example.com 2026-09-27 08:06:05 24b6f6ce
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = 0889893
+-- @          = 3d69c23
+-- main@origin= 0889893
+-- @ empty    = true
+-- AGENTS.md  = v1
+firstmate: updated 3d69c23..f9a397c (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+-- jj log (all visible commits):
+@  tzsttnqm 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:08 0eecee1b
+│  (empty) (no description set)
+◆  rnsszlos live-test@example.com 2026-09-27 08:06:07 main main@origin f9a397c5
+│  bump-readme
+◆  ltlqppqz live-test@example.com 2026-09-27 08:06:06 08898933
+│  bump-instr
+◆  uwrmqytn live-test@example.com 2026-09-27 08:06:05 24b6f6ce
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = f9a397c
+-- @          = 0eecee1
+-- main@origin= f9a397c
+-- @ empty    = true
+-- AGENTS.md  = v2
+
+===== S7 - a plain jj new above the base advances instead of wedging =====
+warning: You appear to have cloned an empty repository.
+-- before (empty chain above the base):
+-- jj log (all visible commits):
+@  wtztmzwl 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:08 ea140061
+│  (empty) (no description set)
+○  wuplutvv 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:08 f83f84fa
+│  (empty) (no description set)
+◆  lyuouplu live-test@example.com 2026-09-27 08:06:08 main main@origin 0dac3752
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = 0dac375
+-- @          = ea14006
+-- main@origin= 0dac375
+-- @ empty    = true
+-- AGENTS.md  = v1
+firstmate: updated ea14006..0dac375
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- jj log (all visible commits):
+@  zrtuylzk 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:09 6f936cca
+│  (empty) (no description set)
+│ ○  wuplutvv 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:08 f83f84fa
+├─╯  (empty) (no description set)
+◆  lyuouplu live-test@example.com 2026-09-27 08:06:08 main main@origin 0dac3752
+│  c1
+◆  zzzzzzzz root() 00000000
+-- main       = 0dac375
+-- @          = 6f936cc
+-- main@origin= 0dac375
+-- @ empty    = true
+-- AGENTS.md  = v1
+
+===== S5 - diverged jj secondmate is skipped with no durable reconciliation record =====
+warning: You appear to have cloned an empty repository.
+-- sm1 before the update (clean working copy, main diverged):
+@  qlntswwk 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:10 485a7bfa
+│  (empty) (no description set)
+○  luvwtunm 26658608+HotThoughts@users.noreply.github.com 2026-09-27 08:06:10 main 0625d45a
+│  local-work
+◆  uvvznyqn live-test@example.com 2026-09-27 08:06:09 main@origin 9d49ec7c
+│  c1
+◆  zzzzzzzz root() 00000000
+firstmate: updated 841cc0b..368519f (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+secondmate sm1: skipped: diverged from main@origin
+secondmate sm2: skipped: diverged from origin/main; reconciliation required (record: /private/var/folders/__/52lfvlt93ddfpyh828xt8qpw0000gn/T/fm-jj-live.nTiYis/w5/home/state/.secondmate-update-reconcile/sm2.pending)
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+-- jj secondmate durable reconcile record present: no
+-- git secondmate durable reconcile record present: yes
+-- sm1 fork work lines intact: 1
+-- sm2 fork work lines intact: 1
+
+fixture root: /var/folders/__/52lfvlt93ddfpyh828xt8qpw0000gn/T//fm-jj-live.nTiYis

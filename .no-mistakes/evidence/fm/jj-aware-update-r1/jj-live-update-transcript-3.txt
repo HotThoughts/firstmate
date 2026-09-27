@@ -1,0 +1,229 @@
+live drive of bin/fm-update.sh on jj colocated homes (jj jj 0.45.1, target e90972e)
+fixture root: /var/folders/__/52lfvlt93ddfpyh828xt8qpw0000gn/T//fm-jj-live3.1USXPG
+
+===== S0 - git-home report form (the 'same form' baseline) =====
+firstmate: updated f71b2fb..f21a18d (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+-- git home reports updated: yes
+-- git home reports instructions changed: yes
+-- git home reread yes: yes
+-- git home HEAD at origin/main: yes
+
+===== S1 - clean jj colocated home behind origin advances (required outcome) =====
+---- jj state before ----
+--   fb162d6  
+--   9f54bd7 c1 main main@origin
+-- reports updated in the git-home form: yes
+-- reports instructions changed like a git home: yes
+-- reread-firstmate yes: yes
+-- default bookmark moved to origin tip: yes
+-- working copy clean (empty) after advance: yes
+-- files at target content (AGENTS.md v2): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: updated fb162d6..3ea32e2 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   7ac9a1c  
+--   3ea32e2 bump-instr main main@origin
+
+===== S2 - already-current clean jj home reports already current =====
+-- reports already current: yes
+-- no reread when nothing changed: yes
+-- bookmark untouched: yes
+-- working copy untouched: yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: already current
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   bd1d59f  
+--   f0c6e49 c1 main main@origin
+
+===== S3 - dirty jj home (unlanded edit) is skipped, work preserved =====
+-- skipped with dirty-working-tree vocabulary: yes
+-- never advanced: yes
+-- no reread on skip: yes
+-- bookmark untouched: yes
+-- working copy untouched: yes
+-- unlanded edit preserved: yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: dirty working tree
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   8f878cd bump-instr main@origin
+--   d178acb  
+--   be464f6 c1 main
+
+===== S4 - diverged jj home is skipped, local commit preserved, never forced =====
+-- skipped with diverged vocabulary: yes
+-- never advanced: yes
+-- no reread on skip: yes
+-- diverged bookmark commit preserved: yes
+-- diverged work preserved on disk: yes
+-- local commit still exists (not discarded): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: diverged from main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   8974242 bump-instr main@origin
+--   13ebdbc  
+--   59d8635 local-work main
+--   6e8c522 c1 
+
+===== S5 - described-but-empty working copy ('jj describe -m wip', no edits) =====
+---- jj state before ----
+--   a8160dc wip 
+--   3968a46 c1 main main@origin
+-- @ empty = true; @ desc = wip
+-- reports the description-based skip: yes
+-- never mislabeled dirty: yes
+-- never advanced: yes
+-- no reread on skip: yes
+-- working copy untouched: yes
+-- bookmark untouched: yes
+-- description preserved: yes
+-- files untouched (still v1): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   d51058c bump-instr main@origin
+--   a8160dc wip 
+--   3968a46 c1 main
+
+===== S5b - described-but-empty via 'jj commit -m wip' with no edits =====
+-- (real jj 0.45.1 leaves @ empty/undescribed and the described empty wip at @-)
+---- jj state before ----
+--   b928a24  
+--   6e5b1fb wip 
+--   0b98d01 c1 main main@origin
+-- @ empty = true; @ desc = ''; @- desc = 'wip'
+-- skipped for the right reason (stranded described commit at @-): yes
+-- never mislabeled dirty: yes
+-- never advanced: yes
+-- no reread on skip: yes
+-- working copy untouched: yes
+-- bookmark untouched: yes
+-- wip commit preserved at @-: yes
+-- wip description preserved: yes
+-- files untouched (still v1): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   72633a5 bump-instr main@origin
+--   b928a24  
+--   6e5b1fb wip 
+--   0b98d01 c1 main
+
+===== S5c - described NON-empty working copy reports the description reason =====
+-- reports the description-based skip: yes
+-- never mislabeled dirty: yes
+-- working copy untouched: yes
+-- description preserved: yes
+-- edit preserved: yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   82bfe13 bump-instr main@origin
+--   7e6f942 wip 
+--   d02c9ff c1 main
+
+===== S6 - working copy parked outside the target is skipped, commit preserved =====
+-- skipped with parked-outside vocabulary: yes
+-- never advanced: yes
+-- no reread on skip: yes
+-- bookmark untouched: yes
+-- working copy untouched: yes
+-- parked commit left behind at @-: yes
+-- parked work preserved on disk: yes
+-- parked commit still exists (nothing stranded): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   ce84fb1 bump-instr main@origin
+--   065ec12  
+--   30d9e16 parked 
+--   ca60f37 c1 main
+
+===== S7 - one plain empty 'jj new' above the base advances instead of wedging =====
+---- jj state before ----
+--   b5ae4d1  
+--   f1fd2b2  
+--   4c6da14 c1 main main@origin
+-- reports updated (not wedged): yes
+-- no reread (served files unchanged): yes
+-- bookmark stays at origin tip: yes
+-- new working copy is an empty child of the base: yes
+-- served files unchanged (still v1): yes
+-- previous working-copy commit still exists (not discarded): yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: updated b5ae4d1..4c6da14
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   ce77440  
+--   f1fd2b2  
+--   4c6da14 c1 main main@origin
+
+===== S8 - reread verdict baselines on the working copy, not the bookmark =====
+-- (bookmark behind origin, @ parked on the old commit whose files the home serves)
+---- jj state before ----
+--   952dabf  
+--   4389f40 bump-instr main main@origin
+--   d97ebe7 c1 
+-- served AGENTS.md = v1
+-- advance reported in the git-home form: yes
+-- instruction list reflects the working-copy baseline: yes
+-- reread-firstmate yes: yes
+-- bookmark at origin tip: yes
+-- files at target content: yes
+---- product output (real bin/fm-update.sh) ----
+firstmate: updated 952dabf..965b202 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+---- jj state after ----
+--   b633082  
+--   965b202 bump-readme main main@origin
+
+===== S9 - a diverged jj SECONDMATE home is skipped with no durable reconcile record =====
+-- git firstmate still advances: yes
+-- jj secondmate skipped with diverged vocabulary: yes
+-- jj secondmate never advanced: yes
+-- no durable reconcile record for a jj home (documented carve-out): yes
+-- jj secondmate bookmark preserved: yes
+-- jj secondmate fork work preserved: yes
+-- skipped jj secondmate gets no restart claim: yes
+firstmate: updated 1af27c3..a7a7501 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+secondmate sm1: skipped: diverged from main@origin
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+
+ALL LIVE SCENARIOS PASSED

@@ -1,0 +1,195 @@
+
+===== SD1 - described-but-empty working copy via 'jj describe -m wip' =====
+-- before the update (origin ahead, @ described wip, empty):
+-- jj log (all visible commits, short):
+--   a82d274 wip []
+--   f63994f c1 [main main@origin]
+--   0000000  []
+-- main       = f63994f
+-- @          = a82d274
+-- @ desc     = wip
+-- @ empty    = true
+-- main@origin= f63994f
+-- AGENTS.md  = v1
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict is the description-based skip: yes
+-- never mislabeled dirty: yes
+-- main unchanged: yes
+-- @ unchanged: yes
+-- @ description preserved: yes
+-- files untouched: yes
+-- no reread on skip: yes
+-- after the update (nothing moved):
+-- jj log (all visible commits, short):
+--   bf45237 bump-instr [main@origin]
+--   a82d274 wip []
+--   f63994f c1 [main]
+--   0000000  []
+-- main       = f63994f
+-- @          = a82d274
+-- @ desc     = wip
+-- @ empty    = true
+-- main@origin= bf45237
+-- AGENTS.md  = v1
+
+===== SD2 - described-but-empty via 'jj commit -m wip' with no edits =====
+-- jj commit: Working copy  (@) now at: zvzlslyp cfec5831 (empty) (no description set)
+-- jj commit: Parent commit (@-)      : krpqlvlk 730cf18f (empty) wip
+-- after 'jj commit -m wip' with no edits:
+-- jj log (all visible commits, short):
+--   cfec583  []
+--   730cf18 wip []
+--   dfa24fa c1 [main main@origin]
+--   0000000  []
+-- main       = dfa24fa
+-- @          = cfec583
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= dfa24fa
+-- AGENTS.md  = v1
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict line: firstmate: skipped: working copy parked outside main@origin
+-- skip (not advanced): yes
+-- never mislabeled dirty: yes
+-- main unchanged: yes
+-- @ unchanged: yes
+-- wip commit preserved at @-: yes
+-- wip description preserved: yes
+-- files untouched: yes
+-- after the update (nothing moved):
+-- jj log (all visible commits, short):
+--   1304ff8 bump-instr [main@origin]
+--   cfec583  []
+--   730cf18 wip []
+--   dfa24fa c1 [main]
+--   0000000  []
+-- main       = dfa24fa
+-- @          = cfec583
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= 1304ff8
+-- AGENTS.md  = v1
+
+===== SD3 - described NON-empty working copy (edit + 'jj describe -m wip') =====
+-- before the update (@ described wip, carries an edit):
+-- jj log (all visible commits, short):
+--   f5f8d34 wip []
+--   15a5f2a c1 [main main@origin]
+--   0000000  []
+-- main       = 15a5f2a
+-- @          = f5f8d34
+-- @ desc     = wip
+-- @ empty    = false
+-- main@origin= 15a5f2a
+-- AGENTS.md  = v1
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict is the description-based skip: yes
+-- never mislabeled dirty: yes
+-- main unchanged: yes
+-- @ unchanged: yes
+-- @ description preserved: yes
+-- edit intact: yes
+-- after the update (nothing moved):
+-- jj log (all visible commits, short):
+--   7567362 bump-instr [main@origin]
+--   f5f8d34 wip []
+--   15a5f2a c1 [main]
+--   0000000  []
+-- main       = 15a5f2a
+-- @          = f5f8d34
+-- @ desc     = wip
+-- @ empty    = false
+-- main@origin= 7567362
+-- AGENTS.md  = v1
+
+===== SP1 - working copy parked outside the target (content commit below empty @) =====
+-- before the update (@ empty child, parked content commit at @-):
+-- jj log (all visible commits, short):
+--   81401cc  []
+--   5947495 parked []
+--   4f9d94e c1 [main main@origin]
+--   0000000  []
+-- main       = 4f9d94e
+-- @          = 81401cc
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= 4f9d94e
+-- AGENTS.md  = v1
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict is the parked-outside skip: yes
+-- main unchanged: yes
+-- @ unchanged: yes
+-- parked commit left behind at @-: yes
+-- parked work intact: yes
+-- no reread on skip: yes
+-- after the update (nothing moved):
+-- jj log (all visible commits, short):
+--   957a649 bump-instr [main@origin]
+--   81401cc  []
+--   5947495 parked []
+--   4f9d94e c1 [main]
+--   0000000  []
+-- main       = 4f9d94e
+-- @          = 81401cc
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= 957a649
+-- AGENTS.md  = v1
+
+===== SC1 - already-current clean jj home still reports already current =====
+firstmate: already current
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict already current: yes
+-- no reread: yes
+
+===== SC2 - one plain empty 'jj new' above the base still advances =====
+-- before the update (@ one plain empty jj new above the base):
+-- jj log (all visible commits, short):
+--   a31b7c8  []
+--   dda223c  []
+--   da057a7 c1 [main main@origin]
+--   0000000  []
+-- main       = da057a7
+-- @          = a31b7c8
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= da057a7
+-- AGENTS.md  = v1
+firstmate: updated a31b7c8..da057a7
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+-- verdict updated (not wedged): yes
+-- no reread (files served unchanged): yes
+-- main at origin tip: yes
+-- new @ is an empty child of the base: yes
+-- files unchanged: yes
+-- after the update:
+-- jj log (all visible commits, short):
+--   6d0d0d0  []
+--   dda223c  []
+--   da057a7 c1 [main main@origin]
+--   0000000  []
+-- main       = da057a7
+-- @          = 6d0d0d0
+-- @ desc     = 
+-- @ empty    = true
+-- main@origin= da057a7
+-- AGENTS.md  = v1
+
+fixture root: /var/folders/__/52lfvlt93ddfpyh828xt8qpw0000gn/T//fm-jj-live2.hQGeno
