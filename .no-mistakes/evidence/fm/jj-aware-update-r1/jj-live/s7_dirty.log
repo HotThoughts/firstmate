@@ -1,0 +1,49 @@
+### FIXTURE: uncommitted working-copy edit
+### BEFORE
+--- state: git ---
+HEAD:        ee312cccc0f1b244212f1f4b70800c9ce2cf8593
+origin/main: ee312cccc0f1b244212f1f4b70800c9ce2cf8593
+branch:      main
+--- state: jj bookmarks ---
+main: nqpykwvs ee312ccc c1
+--- state: jj revisions ---
+@            b305e57 empty=false desc=
+@-           ee312cc empty=false desc=c1
+main         ee312cc empty=false desc=c1
+main@origin  ee312cc empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | uncommitted local edit
+--- state: jj status ---
+Working copy changes:
+M scratch/s7_dirty/main/AGENTS.md
+Working copy  (@) : sxpxkpsw b305e579 (no description set)
+Parent commit (@-): nqpykwvs ee312ccc main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: dirty working tree
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        ee312cccc0f1b244212f1f4b70800c9ce2cf8593
+origin/main: cb8ac602baa0f95ed2483c10c50d251b5c176833
+branch:      main
+--- state: jj bookmarks ---
+main: nqpykwvs ee312ccc c1
+--- state: jj revisions ---
+@            b305e57 empty=false desc=
+@-           ee312cc empty=false desc=c1
+main         ee312cc empty=false desc=c1
+main@origin  cb8ac60 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | uncommitted local edit
+--- state: jj status ---
+Working copy changes:
+M scratch/s7_dirty/main/AGENTS.md
+Working copy  (@) : sxpxkpsw b305e579 (no description set)
+Parent commit (@-): nqpykwvs ee312ccc main | c1

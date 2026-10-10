@@ -1,0 +1,45 @@
+### BEFORE
+--- state: git ---
+HEAD:        172f0a448aeea919afc11176665ed45a4de0bd3d
+origin/main: 172f0a448aeea919afc11176665ed45a4de0bd3d
+branch:      main
+--- state: jj bookmarks ---
+main: onomzsox 172f0a44 c1
+--- state: jj revisions ---
+@            8dca504 empty=true desc=
+@-           172f0a4 empty=false desc=c1
+main         172f0a4 empty=false desc=c1
+main@origin  172f0a4 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : txnrvmum 8dca504b (empty) (no description set)
+Parent commit (@-): onomzsox 172f0a44 main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: updated 8dca504..9f51096 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        9f51096498346d442fef8c89a76651462001692d
+origin/main: 9f51096498346d442fef8c89a76651462001692d
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: ovqtrzzv 9f510964 bump-instr
+--- state: jj revisions ---
+@            0cad617 empty=true desc=
+@-           9f51096 empty=false desc=bump-instr
+main         9f51096 empty=false desc=bump-instr
+main@origin  9f51096 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v2
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : zooxnrtk 0cad6177 (empty) (no description set)
+Parent commit (@-): ovqtrzzv 9f510964 main main@origin | bump-instr

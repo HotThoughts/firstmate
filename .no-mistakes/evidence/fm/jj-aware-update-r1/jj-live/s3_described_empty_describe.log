@@ -1,0 +1,45 @@
+### FIXTURE: jj describe -m wip on an empty working copy
+### BEFORE
+--- state: git ---
+HEAD:        3bc6ae261c9a7eee8a1be24a3e3de663578dfd0b
+origin/main: 3bc6ae261c9a7eee8a1be24a3e3de663578dfd0b
+branch:      main
+--- state: jj bookmarks ---
+main: mzokoylp 3bc6ae26 c1
+--- state: jj revisions ---
+@            03d37c6 empty=true desc=wip
+@-           3bc6ae2 empty=false desc=c1
+main         3bc6ae2 empty=false desc=c1
+main@origin  3bc6ae2 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : kozuypno 03d37c60 (empty) wip
+Parent commit (@-): mzokoylp 3bc6ae26 main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        3bc6ae261c9a7eee8a1be24a3e3de663578dfd0b
+origin/main: 3fc42d8c92f9757c4acc41a8be1636de937d7bc9
+branch:      main
+--- state: jj bookmarks ---
+main: mzokoylp 3bc6ae26 c1
+--- state: jj revisions ---
+@            03d37c6 empty=true desc=wip
+@-           3bc6ae2 empty=false desc=c1
+main         3bc6ae2 empty=false desc=c1
+main@origin  3fc42d8 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : kozuypno 03d37c60 (empty) wip
+Parent commit (@-): mzokoylp 3bc6ae26 main | c1

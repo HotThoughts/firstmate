@@ -1,0 +1,9 @@
+$ bin/fm-test-run.sh --list --changed --base fb75c1f94170df7e0751147ea61afabcf5d4e104
+(exit 0; pre-fix this exited 2 with 'no changed-test mapping for source path: bin/fm-install-jj.sh')
+
+--- suites selected (count: 71) ---
+tests/fm-bootstrap-network-parallel.test.sh
+tests/fm-bootstrap.test.sh
+tests/fm-session-start.test.sh
+tests/fm-update.test.sh
+tests/fm-test-fixtures.test.sh

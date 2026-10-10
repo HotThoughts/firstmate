@@ -1,0 +1,47 @@
+### FIXTURE: local commit the target does not contain
+### BEFORE
+--- state: git ---
+HEAD:        6ff3e871f78620db6ad67f37d53c7a6c75f7e621
+origin/main: 8ce2eef0b3f42bcd3712f26ece9c89eb4956f986
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: tyqktpqx 8ce2eef0 c1
+--- state: jj revisions ---
+@            1a827f3 empty=true desc=
+@-           6ff3e87 empty=false desc=parked
+main         8ce2eef empty=false desc=c1
+main@origin  8ce2eef empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | parked work
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : kmmsunnp 1a827f36 (empty) (no description set)
+Parent commit (@-): vnlvvwys 6ff3e871 parked
+### UPDATE
+--- update stdout ---
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        6ff3e871f78620db6ad67f37d53c7a6c75f7e621
+origin/main: 6333a1788bb0b394e4f0640b07f44b5780f9dc15
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: tyqktpqx 8ce2eef0 c1
+--- state: jj revisions ---
+@            1a827f3 empty=true desc=
+@-           6ff3e87 empty=false desc=parked
+main         8ce2eef empty=false desc=c1
+main@origin  6333a17 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | parked work
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : kmmsunnp 1a827f36 (empty) (no description set)
+Parent commit (@-): vnlvvwys 6ff3e871 parked

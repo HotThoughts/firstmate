@@ -1,0 +1,45 @@
+### FIXTURE: local commit on main that origin does not contain
+### BEFORE
+--- state: git ---
+HEAD:        4c4339a93f7987f311e6e48f989c1fd00f76ab23
+origin/main: c8e03a812a5c9b7357f2afba501371596956c165
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: tvnsquxz 4c4339a9 local-work
+--- state: jj revisions ---
+@            be7671f empty=true desc=
+@-           4c4339a empty=false desc=local-work
+main         4c4339a empty=false desc=local-work
+main@origin  c8e03a8 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | fork work
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : nrkvxmtr be7671f1 (empty) (no description set)
+Parent commit (@-): tvnsquxz 4c4339a9 main | local-work
+### UPDATE
+--- update stdout ---
+firstmate: skipped: diverged from main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        4c4339a93f7987f311e6e48f989c1fd00f76ab23
+origin/main: 4e361117a53dba73fa73b315d4c1dc3fad54672b
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: tvnsquxz 4c4339a9 local-work
+--- state: jj revisions ---
+@            be7671f empty=true desc=
+@-           4c4339a empty=false desc=local-work
+main         4c4339a empty=false desc=local-work
+main@origin  4e36111 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | fork work
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : nrkvxmtr be7671f1 (empty) (no description set)
+Parent commit (@-): tvnsquxz 4c4339a9 main | local-work

@@ -1,0 +1,46 @@
+### FIXTURE: two plain empty jj new commits above the base
+### BEFORE
+--- state: git ---
+HEAD:        7e908489abf276b3d6bd3f96a30858aaa1f71c1b
+origin/main: 4c4a42b16a431caa576fe55e3e36b1a2288064f8
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: ykxtzyyv 4c4a42b1 c1
+--- state: jj revisions ---
+@            629def5 empty=true desc=
+@-           7e90848 empty=true desc=
+main         4c4a42b empty=false desc=c1
+main@origin  4c4a42b empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : nwsyqupl 629def52 (empty) (no description set)
+Parent commit (@-): mutwzynr 7e908489 (empty) (no description set)
+### UPDATE
+--- update stdout ---
+firstmate: updated 629def5..4c4a42b
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        4c4a42b16a431caa576fe55e3e36b1a2288064f8
+origin/main: 4c4a42b16a431caa576fe55e3e36b1a2288064f8
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: ykxtzyyv 4c4a42b1 c1
+--- state: jj revisions ---
+@            f0d420e empty=true desc=
+@-           4c4a42b empty=false desc=c1
+main         4c4a42b empty=false desc=c1
+main@origin  4c4a42b empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : puoyvukr f0d420e2 (empty) (no description set)
+Parent commit (@-): ykxtzyyv 4c4a42b1 main main@origin | c1

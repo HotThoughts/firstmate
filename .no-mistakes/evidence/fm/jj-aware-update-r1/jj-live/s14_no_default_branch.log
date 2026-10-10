@@ -1,0 +1,47 @@
+### FIXTURE: jj home with no main/master bookmark
+### BEFORE
+--- state: git ---
+HEAD:        ec7fc72cb839427a5220456f05ee9ad3f447f895
+origin/main: ec7fc72cb839427a5220456f05ee9ad3f447f895
+branch:      DETACHED
+--- state: jj bookmarks ---
+mainx: pqyklxxk ec7fc72c c1
+--- state: jj revisions ---
+@            493d11b empty=true desc=
+@-           ec7fc72 empty=false desc=c1
+main         Error: Revision `main` doesn't exist
+Hint: Did you mean `main@origin`, `mainx`?
+main@origin  ec7fc72 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : xztqplsr 493d11b8 (empty) (no description set)
+Parent commit (@-): pqyklxxk ec7fc72c main@origin mainx | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: cannot determine default branch
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        ec7fc72cb839427a5220456f05ee9ad3f447f895
+origin/main: ec7fc72cb839427a5220456f05ee9ad3f447f895
+branch:      DETACHED
+--- state: jj bookmarks ---
+mainx: pqyklxxk ec7fc72c c1
+--- state: jj revisions ---
+@            493d11b empty=true desc=
+@-           ec7fc72 empty=false desc=c1
+main         Error: Revision `main` doesn't exist
+Hint: Did you mean `main@origin`, `mainx`?
+main@origin  ec7fc72 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : xztqplsr 493d11b8 (empty) (no description set)
+Parent commit (@-): pqyklxxk ec7fc72c main@origin mainx | c1

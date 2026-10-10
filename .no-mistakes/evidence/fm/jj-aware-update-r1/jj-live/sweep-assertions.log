@@ -1,0 +1,211 @@
+== s1_advance (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s1_advance.log
+== s2_current (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s2_current.log
+== s3_described_empty_describe (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s3_described_empty_describe.log
+== s4_described_empty_commit (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s4_described_empty_commit.log
+== s5_parked_outside (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s5_parked_outside.log
+== s6_plain_new (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s6_plain_new.log
+== s7_dirty (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s7_dirty.log
+== s8_diverged (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s8_diverged.log
+== s9_reread_baseline (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s9_reread_baseline.log
+== s10_described_nonempty_edit_back (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s10_described_nonempty_edit_back.log
+== s11_jj_missing_from_path (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s11_jj_missing_from_path.log
+== s12_bookmark_failure_atomic (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s12_bookmark_failure_atomic.log
+== s13_two_plain_news (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s13_two_plain_news.log
+== s14_no_default_branch (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s14_no_default_branch.log
+== s15_no_origin_remote (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s15_no_origin_remote.log
+== s16_fetch_failure (exit 0) -> /Users/hotthoughts/.no-mistakes/evidence/01M4K531YD8HJ2J88TTRQEXZKD/jj-live/s16_fetch_failure.log
+
+===== assertions =====
+PASS  s1 clean home advances                 firstmate: updated 
+PASS  s1 instr list + reread                 (instructions changed: AGENTS.md, bin, .agents/skills)
+PASS  s1 reread yes                          reread-firstmate: yes
+PASS  s1 files at target                       | v2
+PASS  s2 already current                     firstmate: already current
+PASS  s2 reread no                           reread-firstmate: no
+PASS  s3 description reason                  firstmate: skipped: described working copy commit
+PASS  s3 not dirty                           absent: skipped: dirty working tree
+PASS  s3 files untouched                       | v1
+PASS  s4 skip printed                        firstmate: skipped: 
+PASS  s4 not dirty                           absent: skipped: dirty working tree
+PASS  s4 files untouched                       | v1
+PASS  s4 described commit kept               desc=wip
+PASS  s5 parked reason                       firstmate: skipped: working copy parked outside main@origin
+PASS  s5 parked work kept                      | parked work
+PASS  s6 plain jj new advances               firstmate: updated 
+PASS  s6 no phantom reread                   reread-firstmate: no
+PASS  s6 files untouched                       | v1
+PASS  s7 dirty reason                        firstmate: skipped: dirty working tree
+PASS  s7 edit kept                             | uncommitted local edit
+PASS  s8 diverged reason                     firstmate: skipped: diverged from main@origin
+PASS  s8 fork work kept                        | fork work
+PASS  s9 wc-baselined instr list             (instructions changed: AGENTS.md, bin, .agents/skills)
+PASS  s9 reread yes                          reread-firstmate: yes
+PASS  s9 advanced to origin                  firstmate: updated 
+PASS  s9 files at target                       | v2
+PASS  s10 description reason                 firstmate: skipped: described working copy commit
+PASS  s10 not dirty                          absent: skipped: dirty working tree
+PASS  s10 wip work kept                        | wip edit
+PASS  s11 jj-missing guard                   firstmate: skipped: jj-managed home but jj is not on PATH
+PASS  s12 truthful skip                      firstmate: skipped: could not advance main to main@origin
+PASS  s12 next pass advances                 firstmate: updated 
+PASS  s12 instr movement seen                (instructions changed: AGENTS.md, bin, .agents/skills)
+PASS  s12 reread yes                         reread-firstmate: yes
+PASS  s13 two plain news advances            firstmate: updated 
+PASS  s13 no phantom reread                  reread-firstmate: no
+PASS  s13 files untouched                      | v1
+PASS  s14 no-default guard                   firstmate: skipped: cannot determine default branch
+PASS  s15 no-origin guard                    firstmate: skipped: no origin remote
+PASS  s16 fetch-fail guard                   firstmate: skipped: fetch failed
+PASS  s16 no false advance                   absent: firstmate: updated 
+
+===== revision trails (untouched-shape checks) =====
+  revision trail for s2_current.log:
+    1:### BEFORE
+    9:@            1df165f empty=true desc=
+    11:main         6bf6266 empty=false desc=c1
+    12:main@origin  6bf6266 empty=false desc=c1
+    20:### UPDATE
+    26:### AFTER
+    34:@            1df165f empty=true desc=
+    36:main         6bf6266 empty=false desc=c1
+    37:main@origin  6bf6266 empty=false desc=c1
+  revision trail for s3_described_empty_describe.log:
+    1:### FIXTURE: jj describe -m wip on an empty working copy
+    2:### BEFORE
+    10:@            03d37c6 empty=true desc=wip
+    12:main         3bc6ae2 empty=false desc=c1
+    13:main@origin  3bc6ae2 empty=false desc=c1
+    21:### UPDATE
+    27:### AFTER
+    35:@            03d37c6 empty=true desc=wip
+    37:main         3bc6ae2 empty=false desc=c1
+    38:main@origin  3fc42d8 empty=false desc=bump-instr
+  revision trail for s4_described_empty_commit.log:
+    1:### FIXTURE: jj commit -m wip with no edits
+    2:### BEFORE
+    10:@            0a38252 empty=true desc=
+    12:main         6193244 empty=false desc=c1
+    13:main@origin  6193244 empty=false desc=c1
+    21:### UPDATE
+    27:### AFTER
+    35:@            0a38252 empty=true desc=
+    37:main         6193244 empty=false desc=c1
+    38:main@origin  8a9d8ac empty=false desc=bump-instr
+    46:### wip commit still present?
+  revision trail for s5_parked_outside.log:
+    1:### FIXTURE: local commit the target does not contain
+    2:### BEFORE
+    10:@            1a827f3 empty=true desc=
+    12:main         8ce2eef empty=false desc=c1
+    13:main@origin  8ce2eef empty=false desc=c1
+    22:### UPDATE
+    28:### AFTER
+    36:@            1a827f3 empty=true desc=
+    38:main         8ce2eef empty=false desc=c1
+    39:main@origin  6333a17 empty=false desc=bump-instr
+  revision trail for s7_dirty.log:
+    1:### FIXTURE: uncommitted working-copy edit
+    2:### BEFORE
+    10:@            b305e57 empty=false desc=
+    12:main         ee312cc empty=false desc=c1
+    13:main@origin  ee312cc empty=false desc=c1
+    23:### UPDATE
+    29:### AFTER
+    37:@            b305e57 empty=false desc=
+    39:main         ee312cc empty=false desc=c1
+    40:main@origin  cb8ac60 empty=false desc=bump-instr
+  revision trail for s8_diverged.log:
+    1:### FIXTURE: local commit on main that origin does not contain
+    2:### BEFORE
+    10:@            be7671f empty=true desc=
+    12:main         4c4339a empty=false desc=local-work
+    13:main@origin  c8e03a8 empty=false desc=c1
+    21:### UPDATE
+    27:### AFTER
+    35:@            be7671f empty=true desc=
+    37:main         4c4339a empty=false desc=local-work
+    38:main@origin  4e36111 empty=false desc=bump-instr
+  revision trail for s10_described_nonempty_edit_back.log:
+    1:### FIXTURE: jj commit -m wip (with an edit), then jj edit @- (round-4 F1 shape)
+    2:### BEFORE
+    10:@            e06485e empty=false desc=wip
+    12:main         54e6e50 empty=false desc=c1
+    13:main@origin  54e6e50 empty=false desc=c1
+    23:### UPDATE
+    29:### AFTER
+    37:@            e06485e empty=false desc=wip
+    39:main         54e6e50 empty=false desc=c1
+    40:main@origin  7bf80e6 empty=false desc=bump-instr
+  revision trail for s11_jj_missing_from_path.log:
+    1:### FIXTURE: jj colocated home, jj absent from PATH (system PATH only)
+    2:### BEFORE
+    10:@            1824240 empty=true desc=
+    12:main         acbd020 empty=false desc=c1
+    13:main@origin  acbd020 empty=false desc=c1
+    21:### UPDATE (PATH without jj)
+    27:### AFTER
+    35:@            1824240 empty=true desc=
+    37:main         acbd020 empty=false desc=c1
+    38:main@origin  acbd020 empty=false desc=c1
+  revision trail for s12_bookmark_failure_atomic.log:
+    1:### FIXTURE: bookmark set fault-injected via PATH shim (all other jj calls real)
+    2:### BEFORE
+    10:@            2a38df2 empty=true desc=
+    12:main         22a448c empty=false desc=c1
+    13:main@origin  22a448c empty=false desc=c1
+    21:### UPDATE with bookmark fault
+    27:### AFTER (must be untouched)
+    35:@            2a38df2 empty=true desc=
+    37:main         22a448c empty=false desc=c1
+    38:main@origin  d4b995e empty=false desc=bump-instr
+    46:### UPDATE again with the fault cleared (next pass must see the instruction movement)
+    53:### AFTER recovery
+    61:@            d9e06c7 empty=true desc=
+    63:main         d4b995e empty=false desc=bump-instr
+    64:main@origin  d4b995e empty=false desc=bump-instr
+  revision trail for s13_two_plain_news.log:
+    1:### FIXTURE: two plain empty jj new commits above the base
+    2:### BEFORE
+    10:@            629def5 empty=true desc=
+    12:main         4c4a42b empty=false desc=c1
+    13:main@origin  4c4a42b empty=false desc=c1
+    21:### UPDATE
+    28:### AFTER
+    36:@            f0d420e empty=true desc=
+    38:main         4c4a42b empty=false desc=c1
+    39:main@origin  4c4a42b empty=false desc=c1
+  revision trail for s14_no_default_branch.log:
+    1:### FIXTURE: jj home with no main/master bookmark
+    2:### BEFORE
+    10:@            493d11b empty=true desc=
+    12:main         Error: Revision `main` doesn't exist
+    14:main@origin  ec7fc72 empty=false desc=c1
+    22:### UPDATE
+    28:### AFTER
+    36:@            493d11b empty=true desc=
+    38:main         Error: Revision `main` doesn't exist
+    40:main@origin  ec7fc72 empty=false desc=c1
+  revision trail for s15_no_origin_remote.log:
+    1:### FIXTURE: jj home with no origin remote
+    2:### BEFORE
+    13:@            71b26ad empty=true desc=
+    15:main         b6aae70 empty=false desc=c1
+    16:main@origin  Error: Revision `main@origin` doesn't exist
+    25:### UPDATE
+    31:### AFTER
+    42:@            71b26ad empty=true desc=
+    44:main         b6aae70 empty=false desc=c1
+    45:main@origin  Error: Revision `main@origin` doesn't exist
+  revision trail for s16_fetch_failure.log:
+    1:### FIXTURE: origin remote unreachable
+    2:### BEFORE
+    10:@            a48be65 empty=true desc=
+    12:main         c5da3a8 empty=false desc=c1
+    13:main@origin  c5da3a8 empty=false desc=c1
+    21:### UPDATE
+    27:### AFTER
+    35:@            a48be65 empty=true desc=
+    37:main         c5da3a8 empty=false desc=c1
+    38:main@origin  c5da3a8 empty=false desc=c1
+
+total assertion failures: 0

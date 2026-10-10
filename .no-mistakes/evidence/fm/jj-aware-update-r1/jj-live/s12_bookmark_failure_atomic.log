@@ -1,0 +1,71 @@
+### FIXTURE: bookmark set fault-injected via PATH shim (all other jj calls real)
+### BEFORE
+--- state: git ---
+HEAD:        22a448c58f438d3c551d4cf7ff121d333f2deb1d
+origin/main: 22a448c58f438d3c551d4cf7ff121d333f2deb1d
+branch:      main
+--- state: jj bookmarks ---
+main: ormsovkn 22a448c5 c1
+--- state: jj revisions ---
+@            2a38df2 empty=true desc=
+@-           22a448c empty=false desc=c1
+main         22a448c empty=false desc=c1
+main@origin  22a448c empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : louvvvtv 2a38df23 (empty) (no description set)
+Parent commit (@-): ormsovkn 22a448c5 main main@origin | c1
+### UPDATE with bookmark fault
+--- update stdout ---
+firstmate: skipped: could not advance main to main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER (must be untouched)
+--- state: git ---
+HEAD:        22a448c58f438d3c551d4cf7ff121d333f2deb1d
+origin/main: d4b995e21ec205055328076f8a34c82f7f9478d0
+branch:      main
+--- state: jj bookmarks ---
+main: ormsovkn 22a448c5 c1
+--- state: jj revisions ---
+@            2a38df2 empty=true desc=
+@-           22a448c empty=false desc=c1
+main         22a448c empty=false desc=c1
+main@origin  d4b995e empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : louvvvtv 2a38df23 (empty) (no description set)
+Parent commit (@-): ormsovkn 22a448c5 main | c1
+### UPDATE again with the fault cleared (next pass must see the instruction movement)
+--- update stdout ---
+firstmate: updated 2a38df2..d4b995e (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER recovery
+--- state: git ---
+HEAD:        d4b995e21ec205055328076f8a34c82f7f9478d0
+origin/main: d4b995e21ec205055328076f8a34c82f7f9478d0
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: zoylxqkl d4b995e2 bump-instr
+--- state: jj revisions ---
+@            d9e06c7 empty=true desc=
+@-           d4b995e empty=false desc=bump-instr
+main         d4b995e empty=false desc=bump-instr
+main@origin  d4b995e empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v2
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : luxrxlqr d9e06c7b (empty) (no description set)
+Parent commit (@-): zoylxqkl d4b995e2 main main@origin | bump-instr

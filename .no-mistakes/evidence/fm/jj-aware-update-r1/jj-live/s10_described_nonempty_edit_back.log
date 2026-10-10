@@ -1,0 +1,49 @@
+### FIXTURE: jj commit -m wip (with an edit), then jj edit @- (round-4 F1 shape)
+### BEFORE
+--- state: git ---
+HEAD:        54e6e50b93909ad3bed84ae483fbf14e41ff2a03
+origin/main: 54e6e50b93909ad3bed84ae483fbf14e41ff2a03
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: nzuvkkrx 54e6e50b c1
+--- state: jj revisions ---
+@            e06485e empty=false desc=wip
+@-           54e6e50 empty=false desc=c1
+main         54e6e50 empty=false desc=c1
+main@origin  54e6e50 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | wip edit
+--- state: jj status ---
+Working copy changes:
+M scratch/s10_described_nonempty_edit_back/main/AGENTS.md
+Working copy  (@) : ysowyquy e06485ec wip
+Parent commit (@-): nzuvkkrx 54e6e50b main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        54e6e50b93909ad3bed84ae483fbf14e41ff2a03
+origin/main: 7bf80e61e70c7127fe8286de1efc23528ec96e61
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: nzuvkkrx 54e6e50b c1
+--- state: jj revisions ---
+@            e06485e empty=false desc=wip
+@-           54e6e50 empty=false desc=c1
+main         54e6e50 empty=false desc=c1
+main@origin  7bf80e6 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+  | wip edit
+--- state: jj status ---
+Working copy changes:
+M scratch/s10_described_nonempty_edit_back/main/AGENTS.md
+Working copy  (@) : ysowyquy e06485ec wip
+Parent commit (@-): nzuvkkrx 54e6e50b main | c1

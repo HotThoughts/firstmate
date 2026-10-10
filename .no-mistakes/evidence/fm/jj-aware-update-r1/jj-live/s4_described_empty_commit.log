@@ -1,0 +1,47 @@
+### FIXTURE: jj commit -m wip with no edits
+### BEFORE
+--- state: git ---
+HEAD:        536e4e9bf6119d4e5c0201ec7523c7f73dc9dbe3
+origin/main: 619324465b0dadfab6030bb66925c3519d729b84
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: xymqvloq 61932446 c1
+--- state: jj revisions ---
+@            0a38252 empty=true desc=
+@-           536e4e9 empty=true desc=wip
+main         6193244 empty=false desc=c1
+main@origin  6193244 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : otpqvqqm 0a382521 (empty) (no description set)
+Parent commit (@-): xwmzytmo 536e4e9b (empty) wip
+### UPDATE
+--- update stdout ---
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        536e4e9bf6119d4e5c0201ec7523c7f73dc9dbe3
+origin/main: 8a9d8acbc05ab5c54f2284ab5279db57f48f0400
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: xymqvloq 61932446 c1
+--- state: jj revisions ---
+@            0a38252 empty=true desc=
+@-           536e4e9 empty=true desc=wip
+main         6193244 empty=false desc=c1
+main@origin  8a9d8ac empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : otpqvqqm 0a382521 (empty) (no description set)
+Parent commit (@-): xwmzytmo 536e4e9b (empty) wip
+### wip commit still present?
+Error: Revision `wip` doesn't exist

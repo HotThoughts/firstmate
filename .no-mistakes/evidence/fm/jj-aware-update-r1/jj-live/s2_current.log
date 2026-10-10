@@ -1,0 +1,44 @@
+### BEFORE
+--- state: git ---
+HEAD:        6bf62662fb016dc32a8a8ce05fdeb6c266636d81
+origin/main: 6bf62662fb016dc32a8a8ce05fdeb6c266636d81
+branch:      main
+--- state: jj bookmarks ---
+main: ryotnttt 6bf62662 c1
+--- state: jj revisions ---
+@            1df165f empty=true desc=
+@-           6bf6266 empty=false desc=c1
+main         6bf6266 empty=false desc=c1
+main@origin  6bf6266 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : nmxpoqqm 1df165f2 (empty) (no description set)
+Parent commit (@-): ryotnttt 6bf62662 main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: already current
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        6bf62662fb016dc32a8a8ce05fdeb6c266636d81
+origin/main: 6bf62662fb016dc32a8a8ce05fdeb6c266636d81
+branch:      main
+--- state: jj bookmarks ---
+main: ryotnttt 6bf62662 c1
+--- state: jj revisions ---
+@            1df165f empty=true desc=
+@-           6bf6266 empty=false desc=c1
+main         6bf6266 empty=false desc=c1
+main@origin  6bf6266 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : nmxpoqqm 1df165f2 (empty) (no description set)
+Parent commit (@-): ryotnttt 6bf62662 main main@origin | c1

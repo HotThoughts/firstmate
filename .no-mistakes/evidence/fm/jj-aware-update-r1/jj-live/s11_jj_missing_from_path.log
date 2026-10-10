@@ -1,0 +1,45 @@
+### FIXTURE: jj colocated home, jj absent from PATH (system PATH only)
+### BEFORE
+--- state: git ---
+HEAD:        acbd02044b1dc31ed2963e85ceb1127f606ba60b
+origin/main: acbd02044b1dc31ed2963e85ceb1127f606ba60b
+branch:      main
+--- state: jj bookmarks ---
+main: mztumtzt acbd0204 c1
+--- state: jj revisions ---
+@            1824240 empty=true desc=
+@-           acbd020 empty=false desc=c1
+main         acbd020 empty=false desc=c1
+main@origin  acbd020 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : uwykqovm 18242404 (empty) (no description set)
+Parent commit (@-): mztumtzt acbd0204 main main@origin | c1
+### UPDATE (PATH without jj)
+--- update stdout ---
+firstmate: skipped: jj-managed home but jj is not on PATH
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        acbd02044b1dc31ed2963e85ceb1127f606ba60b
+origin/main: acbd02044b1dc31ed2963e85ceb1127f606ba60b
+branch:      main
+--- state: jj bookmarks ---
+main: mztumtzt acbd0204 c1
+--- state: jj revisions ---
+@            1824240 empty=true desc=
+@-           acbd020 empty=false desc=c1
+main         acbd020 empty=false desc=c1
+main@origin  acbd020 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : uwykqovm 18242404 (empty) (no description set)
+Parent commit (@-): mztumtzt acbd0204 main main@origin | c1

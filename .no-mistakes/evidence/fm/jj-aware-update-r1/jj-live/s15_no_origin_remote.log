@@ -1,0 +1,53 @@
+### FIXTURE: jj home with no origin remote
+### BEFORE
+--- state: git ---
+HEAD:        b6aae704b6e3a1c2dbfae6394070ee1c9d36f904
+fatal: ambiguous argument 'origin/main': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+origin/main: origin/main
+branch:      main
+--- state: jj bookmarks ---
+main: xzqktnoq b6aae704 c1
+--- state: jj revisions ---
+@            71b26ad empty=true desc=
+@-           b6aae70 empty=false desc=c1
+main         b6aae70 empty=false desc=c1
+main@origin  Error: Revision `main@origin` doesn't exist
+Hint: Did you mean `main`, `main@git`?
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : lsuvtnww 71b26ade (empty) (no description set)
+Parent commit (@-): xzqktnoq b6aae704 main | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: no origin remote
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        b6aae704b6e3a1c2dbfae6394070ee1c9d36f904
+fatal: ambiguous argument 'origin/main': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+origin/main: origin/main
+branch:      main
+--- state: jj bookmarks ---
+main: xzqktnoq b6aae704 c1
+--- state: jj revisions ---
+@            71b26ad empty=true desc=
+@-           b6aae70 empty=false desc=c1
+main         b6aae70 empty=false desc=c1
+main@origin  Error: Revision `main@origin` doesn't exist
+Hint: Did you mean `main`, `main@git`?
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : lsuvtnww 71b26ade (empty) (no description set)
+Parent commit (@-): xzqktnoq b6aae704 main | c1

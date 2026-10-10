@@ -1,0 +1,53 @@
+### UPDATE 1 (advance to the instr commit)
+--- update stdout ---
+firstmate: updated a6782da..b620b60 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+### FIXTURE: working copy parked on the pre-instr serve state; origin advanced by README only
+### BEFORE
+--- state: git ---
+HEAD:        7f4d65ec0bc319428bc8adbc0a79bd1ccd3adbdc
+origin/main: b620b603cf44769c901dd086d3b64c33941e34bc
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: wmxnsrxq b620b603 bump-instr
+--- state: jj revisions ---
+@            b0644a7 empty=true desc=
+@-           7f4d65e empty=false desc=c1
+main         b620b60 empty=false desc=bump-instr
+main@origin  b620b60 empty=false desc=bump-instr
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : zqwpuwoy b0644a76 (empty) (no description set)
+Parent commit (@-): womounow 7f4d65ec c1
+### UPDATE 2
+--- update stdout ---
+firstmate: updated b0644a7..ec90ff2 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        ec90ff236260740f7dd6274c8a7080c87fc1c098
+origin/main: ec90ff236260740f7dd6274c8a7080c87fc1c098
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: yqzwrwkl ec90ff23 bump-readme
+--- state: jj revisions ---
+@            efc85c8 empty=true desc=
+@-           ec90ff2 empty=false desc=bump-readme
+main         ec90ff2 empty=false desc=bump-readme
+main@origin  ec90ff2 empty=false desc=bump-readme
+--- state: working-copy files ---
+AGENTS.md content:
+  | v2
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : pvlynurv efc85c8b (empty) (no description set)
+Parent commit (@-): yqzwrwkl ec90ff23 main main@origin | bump-readme

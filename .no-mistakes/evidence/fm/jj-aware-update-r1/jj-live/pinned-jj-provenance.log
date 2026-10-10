@@ -1,0 +1,9 @@
+pinned jj used for the live sweep (first on PATH):
+jj 0.45.1-7c41cdeb16b6b321c64e789a966b6adf723816a5
+host jj (homebrew, also 0.45.1):
+jj 0.45.1
+
+installer provenance (bin/fm-install-jj.sh wrote this binary):
+fm-install-jj.sh: downloading jj-v0.45.1-aarch64-apple-darwin.tar.gz from https://github.com/jj-vcs/jj/releases/download/v0.45.1/jj-v0.45.1-aarch64-apple-darwin.tar.gz
+fm-install-jj.sh: installed jj 0.45.1-7c41cdeb16b6b321c64e789a966b6adf723816a5 to /var/folders/__/52lfvlt93ddfpyh828xt8qpw0000gn/T//fm-jj-install.BHqAlK/jj
+jj 0.45.1-7c41cdeb16b6b321c64e789a966b6adf723816a5

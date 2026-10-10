@@ -1,0 +1,45 @@
+### FIXTURE: origin remote unreachable
+### BEFORE
+--- state: git ---
+HEAD:        c5da3a8be8c6b8c2306b7af54474d40429563992
+origin/main: c5da3a8be8c6b8c2306b7af54474d40429563992
+branch:      main
+--- state: jj bookmarks ---
+main: vqqntpqv c5da3a8b c1
+--- state: jj revisions ---
+@            a48be65 empty=true desc=
+@-           c5da3a8 empty=false desc=c1
+main         c5da3a8 empty=false desc=c1
+main@origin  c5da3a8 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : tnzspxzs a48be655 (empty) (no description set)
+Parent commit (@-): vqqntpqv c5da3a8b main main@origin | c1
+### UPDATE
+--- update stdout ---
+firstmate: skipped: fetch failed
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        c5da3a8be8c6b8c2306b7af54474d40429563992
+origin/main: c5da3a8be8c6b8c2306b7af54474d40429563992
+branch:      main
+--- state: jj bookmarks ---
+main: vqqntpqv c5da3a8b c1
+--- state: jj revisions ---
+@            a48be65 empty=true desc=
+@-           c5da3a8 empty=false desc=c1
+main         c5da3a8 empty=false desc=c1
+main@origin  c5da3a8 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : tnzspxzs a48be655 (empty) (no description set)
+Parent commit (@-): vqqntpqv c5da3a8b main main@origin | c1

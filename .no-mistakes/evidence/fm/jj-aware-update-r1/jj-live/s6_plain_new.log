@@ -1,0 +1,46 @@
+### FIXTURE: one plain empty jj new above the base
+### BEFORE
+--- state: git ---
+HEAD:        ca28ea1112f106460cf21801ec2513065b53589c
+origin/main: 83b41d94badde7737c4cb33080e69e17c39bfcd9
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: qowkmqnw 83b41d94 c1
+--- state: jj revisions ---
+@            70f6d64 empty=true desc=
+@-           ca28ea1 empty=true desc=
+main         83b41d9 empty=false desc=c1
+main@origin  83b41d9 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : kuuyxuml 70f6d645 (empty) (no description set)
+Parent commit (@-): wlzrpzos ca28ea11 (empty) (no description set)
+### UPDATE
+--- update stdout ---
+firstmate: updated 70f6d64..83b41d9
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+### AFTER
+--- state: git ---
+HEAD:        83b41d94badde7737c4cb33080e69e17c39bfcd9
+origin/main: 83b41d94badde7737c4cb33080e69e17c39bfcd9
+branch:      DETACHED
+--- state: jj bookmarks ---
+main: qowkmqnw 83b41d94 c1
+--- state: jj revisions ---
+@            44b7ba7 empty=true desc=
+@-           83b41d9 empty=false desc=c1
+main         83b41d9 empty=false desc=c1
+main@origin  83b41d9 empty=false desc=c1
+--- state: working-copy files ---
+AGENTS.md content:
+  | v1
+--- state: jj status ---
+The working copy has no changes.
+Working copy  (@) : lmnptvqo 44b7ba7a (empty) (no description set)
+Parent commit (@-): qowkmqnw 83b41d94 main main@origin | c1
