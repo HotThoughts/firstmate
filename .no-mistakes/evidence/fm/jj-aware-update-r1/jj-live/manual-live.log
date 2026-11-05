@@ -1,0 +1,147 @@
+
+=== SCENARIO jj-clean-behind-advances ===
+--- update output (exit 0) ---
+firstmate: updated db974a5..ca6dfef (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+  ok: clean jj home reports an advance
+  ok: advance reports the changed instruction surface
+  ok: instruction change flips reread
+  ok: default bookmark is at origin tip
+  ok: working copy is clean after the advance
+  ok: tracked files advanced to target content
+  ok: bookmark actually moved
+  ok: advanced tip is a single-parent fast-forward
+--- git control output ---
+firstmate: updated 5977d5a..27e2a43 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+  ok: git control emits the reference updated line
+  ok: jj home emits the same updated line shape as the git home
+RESULT: PASS
+
+=== SCENARIO jj-already-current-noop ===
+--- update output (exit 0) ---
+firstmate: already current
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: clean current jj home reports already current
+  ok: no reread when nothing moved
+  ok: bookmark unchanged
+  ok: working copy unchanged
+  ok: working copy still clean
+RESULT: PASS
+
+=== SCENARIO jj-empty-new-above-base-advances ===
+--- update output (exit 0) ---
+firstmate: updated 81f10bd..8c3afec
+no watches registered
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: a plain jj new above the base advances
+  ok: unchanged files do not trigger a reread
+  ok: bookmark sits at origin tip
+  ok: working copy is a clean child of the target
+  ok: files unchanged, as expected
+RESULT: PASS
+
+=== SCENARIO jj-described-empty-describe-skips-description ===
+--- update output (exit 0) ---
+firstmate: skipped: described working copy commit
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: described empty WC skips with the description reason
+  ok: described empty WC is never mislabeled dirty
+  ok: working-copy commit not relocated
+  ok: working-copy description preserved
+  ok: bookmark untouched
+  ok: working copy still empty (no content moved)
+RESULT: PASS
+
+=== SCENARIO jj-described-empty-commit-skips-parked-outside ===
+--- update output (exit 0) ---
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: jj commit -m wip with no edits skips as a parked working copy
+  ok: described-but-empty is never reported as unlanded dirt
+  ok: working-copy commit not relocated
+  ok: the described empty commit is not stranded or discarded
+  ok: its description is preserved
+  ok: bookmark untouched
+RESULT: PASS
+
+=== SCENARIO jj-wc-parked-outside-target-skips ===
+--- update output (exit 0) ---
+firstmate: skipped: working copy parked outside main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: parked working copy skipped
+  ok: working-copy commit not relocated
+  ok: parked commit still in place
+  ok: parked commit still resolvable (nothing stranded)
+  ok: parked work preserved on disk
+  ok: bookmark untouched
+RESULT: PASS
+
+=== SCENARIO jj-diverged-history-skips ===
+--- update output (exit 0) ---
+firstmate: skipped: diverged from main@origin
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: diverged bookmark skipped, never forced
+  ok: local bookmark not moved to upstream
+  ok: working-copy commit untouched
+  ok: local commit content preserved
+RESULT: PASS
+
+=== SCENARIO jj-dirty-working-copy-skips ===
+--- update output (exit 0) ---
+firstmate: skipped: dirty working tree
+reread-firstmate: no
+restart-secondmates: none
+nudge-secondmates: none
+  ok: unlanded edit skipped as dirty
+  ok: snapshot commit not relocated
+  ok: bookmark untouched
+  ok: unlanded edit preserved on disk
+RESULT: PASS
+
+=== SCENARIO jj-secondmate-advances-clears-record ===
+--- update output (exit 0) ---
+firstmate: updated b363076..f9b1318 (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+secondmate sm1: updated de63557..f9b1318 (instructions changed: AGENTS.md, bin, .agents/skills)
+reread-firstmate: yes
+restart-secondmates: fm-sm1
+nudge-secondmates: none
+  ok: jj primary advanced alongside its secondmate
+  ok: jj secondmate home advanced through the jj path
+  ok: pending reconciliation record cleared on convergence
+  ok: secondmate bookmark at origin tip
+  ok: secondmate files at target content
+  ok: secondmate working copy clean
+RESULT: PASS
+
+=== SCENARIO jj-failed-diff-reports-changed ===
+--- update output (exit 0) ---
+firstmate: updated 4085c26..a308e1d (instructions changed: AGENTS.md, bin, .agents/skills)
+no watches registered
+reread-firstmate: yes
+restart-secondmates: none
+nudge-secondmates: none
+  ok: home still advances when jj diff cannot run
+  ok: failed jj diff over-approximates to changed instruction surface
+RESULT: PASS
+
+==== SUMMARY: 54 passed, 0 failed ====
